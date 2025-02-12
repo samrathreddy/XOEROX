@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#0A0A0A] text-gray-100;
+}
+
+/* Monaco Editor Dark Theme Overrides */
+.monaco-editor {
+  @apply !bg-[#1A1A1A];
+}
+
+/* PDF Viewer Dark Theme */
+.react-pdf__Page {
+  @apply bg-[#1A1A1A] !important;
+}
+
+.react-pdf__Page__canvas {
+  @apply mx-auto !important;
+}
+
+/* Remove or comment out the old loader styles */
+/* .loader {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  animation: spin 2s linear infinite;
+} */
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes slide {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-slide-gradient {
+  animation: slide 2s linear infinite;
+  background-size: 200% auto;
+}
+
+/* Markdown Styling */
+.prose pre {
+  @apply bg-gray-800 text-gray-100 p-4 rounded-lg my-4;
+}
+
+.prose code {
+  @apply bg-gray-800 text-gray-100 px-1.5 py-0.5 rounded text-sm;
+}
+
+.prose h1 {
+  @apply text-3xl font-bold mb-6 mt-8 text-white;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold mb-4 mt-6 text-white;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mb-3 mt-5 text-white;
+}
+
+.prose h4 {
+  @apply text-lg font-semibold mb-2 mt-4 text-white;
+}
+
+.prose p {
+  @apply text-gray-300 mb-4 leading-relaxed;
+}
+
+.prose ul {
+  @apply list-disc list-inside text-gray-300 mb-4 space-y-2;
+}
+
+.prose ol {
+  @apply list-decimal list-inside text-gray-300 mb-4 space-y-2;
+}
+
+.prose li {
+  @apply text-gray-300 ml-4;
+}
+
+.prose a {
+  @apply text-blue-400 hover:text-blue-300 underline;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-gray-600 pl-4 my-4 text-gray-400;
+}
+
+.prose hr {
+  @apply border-gray-700 my-8;
+}
+
+/* Ensure code blocks have proper spacing and background */
+.prose pre code {
+  @apply bg-transparent p-0 text-gray-100;
+}
+
+/* Add spacing between list items */
+.prose ul > li,
+.prose ol > li {
+  @apply mb-2;
+}
+
+/* Ensure nested lists are properly indented */
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  @apply ml-4 mt-2;
+}
