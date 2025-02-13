@@ -1,0 +1,25 @@
+[build]
+builder = "NIXPACKS"
+
+[build.nixpacks]
+# Install required dependencies for PDF to Image conversion
+phases.setup.nixPkgs = ["poppler", "graphicsmagick", "ghostscript"]
+
+[deploy]
+runtime = "V2"
+numReplicas = 1
+sleepApplication = false
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+[deploy.multiRegionConfig."us-west1"]
+numReplicas = 1
+
+[start]
+# Install dependencies including pdf2pic before starting the server
+cmd = """
+npm install -g pdf2pic &&
+npm install &&
+npm run build &&
+node dist/index.js
+"""
